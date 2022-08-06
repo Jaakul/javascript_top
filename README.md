@@ -1,2 +1,2 @@
-# javascript_top
+# top_js
 for learning js in TOP
