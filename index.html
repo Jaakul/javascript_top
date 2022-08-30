@@ -1,158 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Table template</title>
-    <link href="minimal-table.css" rel="stylesheet" type="text/css">
+    <title>Favorite fruit start</title>
+    <style>
+    form {
+  font: 1em sans-serif;
+  max-width: 320px;
+}
+
+p > label {
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea,
+fieldset {
+  width: 100%;
+  border: 1px solid #333;
+  box-sizing: border-box;
+}
+
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+  box-shadow: none;
+}
+    </style>
   </head>
-  <body>
-    <h1>Table template</h1>
-    <table>
-      <colgroup>
-        <col>
-        <col>
-        <col style="border: solid black 2px;">
-      </colgroup>
-      <caption>Data about the planets of our solar system (Planetary facts taken from <a href="http://nssdc.gsfc.nasa.gov/planetary/factsheet/">Nasa's Planetary Fact Sheet - Metric</a>).</caption>
-    <thead>
-      <tr>
-        <td colspan="2">&nbsp;</td>
-        <td>Name</td>
-        <td>Mass (10<sup>24</sup>kg)</td>
-        <td>Diameter (km)</td>
-        <td>Density (kg/m<sup>3</sup>)</td>
-        <td>Gravity (m/s<sup>2</sup>)</td>
-        <td>Length of day (hours)</td>
-        <td>Distance from Sun (10<sup>6</sup>km)</td>
-        <td>Mean temperature (°C)</td>
-        <td>Number of moons</td>
-        <td>Notes</td>
-      </tr>
-    </thead>
 
-    <tr>
-      <td colspan="2" rowspan="4">Terrestrial planets</td>
-      <td>Mercury</td>
-      <td>0.330</td>
-      <td>4,879</td>
-      <td>5427</td>
-      <td>3.7</td>
-      <td>4222.6</td>
-      <td>57.9</td>
-      <td>167</td>
-      <td>0</td>
-      <td>Closest to the Sun</td>
-    </tr>
-    <tr>
-      <td>Venus</td>
-      <td>4.87</td>
-      <td>12,104</td>
-      <td>5243</td>
-      <td>8.9</td>
-      <td>2802.0</td>
-      <td>108.2</td>
-      <td>464</td>
-      <td>0</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Earth</td>
-      <td>5.97</td>
-      <td>12,756</td>
-      <td>5514</td>
-      <td>9.8</td>
-      <td>24.0</td>
-      <td>149.6</td>
-      <td>15</td>
-      <td>1</td>
-      <td>Our world</td>
-    </tr>
-    <tr>
-      <td>Mars</td>
-      <td>0.642</td>
-      <td>6,792</td>
-      <td>3933</td>
-      <td>3.7</td>
-      <td>24.7</td>
-      <td>227.9</td>
-      <td>-65</td>
-      <td>2</td>
-      <td>The red planet</td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="6">Jovian planets</td>
-    </tr>
-    <tr>
+<body>
+    <form>
+        <p>
+          <fieldset>
+            <legend>Do you have a driver's license?<span aria-label="required">*</span></legend>
+            <!-- While only one radio button in a same-named group can be selected at a time,
+                 and therefore only one radio button in a same-named group having the "required"
+                 attribute suffices in making a selection a requirement -->
+            <input type="radio" required name="driver" id="r1" value="yes"><label for="r1">Yes</label>
+            <input type="radio" required name="driver" id="r2" value="no"><label for="r2">No</label>
+          </fieldset>
+        </p>
+        <p>
+          <label for="n1">How old are you?</label>
+          <!-- The pattern attribute can act as a fallback for browsers which
+               don't implement the number input type but support the pattern attribute.
+               Please note that browsers that support the pattern attribute will make it
+               fail silently when used with a number field.
+               Its usage here acts only as a fallback -->
+          <input type="number" min="12" max="120" step="1" id="n1" name="age"
+                 pattern="\d+">
+        </p>
+        <p>
+          <label for="t1">What's your favorite fruit?<span aria-label="required">*</span></label>
+          <input type="text" id="t1" name="fruit" list="l1" required
+                 pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+          <datalist id="l1">
+            <option>Banana</option>
+            <option>Cherry</option>
+            <option>Apple</option>
+            <option>Strawberry</option>
+            <option>Lemon</option>
+            <option>Orange</option>
+          </datalist>
+        </p>
+        <p>
+          <label for="t2">What's your e-mail address?</label>
+          <input type="email" id="t2" name="email">
+        </p>
+        <p>
+          <label for="t3">Leave a short message</label>
+          <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+        </p>
+        <p>
+          <button>Submit</button>
+        </p>
+      </form>
+      
+      
+</body>
 
-    </tr>
-    <tr>
-      <td rowspan="2">Gas giants</td>
-      <td>Jupiter</td>
-      <td>1898</td>
-      <td>142,984</td>
-      <td>1326</td>
-      <td>23.1</td>
-      <td>9.9</td>
-      <td>778.6</td>
-      <td>-110</td>
-      <td>67</td>
-      <td>The largest planet</td>
-    </tr>
-    <tr>
-      <td>Saturn</td>
-      <td>568</td>
-      <td>120,536</td>
-      <td>687</td>
-      <td>9.0</td>
-      <td>10.7</td>
-      <td>1433.5</td>
-      <td>-140</td>
-      <td>62</td>
-      <td>&nbsp;</td>
-    </tr>
-
-    <tr>
-      <td rowspan="2">Ice giants</td>
-      <td>Uranus</td>
-      <td>86.8</td>
-      <td>51,118</td>
-      <td>1271</td>
-      <td>8.7</td>
-      <td>17.2</td>
-      <td>2872.5</td>
-      <td>-195</td>
-      <td>27</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Neptune</td>
-      <td>102</td>
-      <td>49,528</td>
-      <td>1638</td>
-      <td>11.0</td>
-      <td>16.1</td>
-      <td>4495.1</td>
-      <td>-200</td>
-      <td>14</td>
-      <td>&nbsp;</td>
-    </tr>
-
-    <tr>
-      <td rowspan="2" colspan="2">Dwarf planets*</td>
-      <td>Pluto</td>
-      <td>0.0146</td>
-      <td>2,370</td>
-      <td>2095</td>
-      <td>0.7</td>
-      <td>153.3</td>
-      <td>5906.4</td>
-      <td>-225</td>
-      <td>5</td>
-      <td>Declassified as a planet in 2006, but this <a href="http://www.usatoday.com/story/tech/2014/10/02/pluto-planet-solar-system/16578959/">remains controversial</a>.</td>
-    </tr>
-    </table>
-
-
-  </body>
 </html>
